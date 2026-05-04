@@ -3,7 +3,7 @@ import HabitCard from "./HabitCard";
 export default function HabitList({ habits, onToggle, onDelete}) {
     if(!habits.length) {
         return (
-            <div className="text-center text-gray-400 py-16">
+            <div className="text-center text-amber-900 dark:text-gray-400 py-16">
                 <p className="text-4xl mb-3">🌱</p>
                 <p>no habits yet -- add one below!</p>
             </div>

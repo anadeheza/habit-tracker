@@ -21,8 +21,8 @@ export default function HabitCard({ habit, onToggle, onDelete }) {
         <div
             className={`rounded-2xl p-4 mb-3 transition-all duration-300 border ${
                 done
-                ? "bg-zinc-800 border-red-300 opacity-60"
-                : "bg-zinc-900 border-rose-400 opacity-85 hover:border-rose-200"
+                ? "bg-taupe-800 border-orange-300 opacity-60"
+                : "bg-taupe-700 dark:bg-taupe-900 border-red-400 dark:opacity-85 hover:border-orange-200"
             }`}
         >
             <div className="flex items-center gap-4">
@@ -38,29 +38,29 @@ export default function HabitCard({ habit, onToggle, onDelete }) {
                 </button>
 
                 <div className="flex-1 min-w-0">
-                    <p className={`font-medium truncate ${done ? "line-through text-gray-500" : ""}`}>
+                    <p className={`font-medium truncate ${done ? "line-through text-taupe-600" : ""}`}>
                         {habit.name}
                     </p>
-                    <p className="text-xs text-rose-100 opacity-80 mt-0.5">{streakMessage(streak)}</p>
+                    <p className="text-xs text-orange-100 opacity-80 mt-0.5">{streakMessage(streak)}</p>
                 </div>
 
                 <div className="text-right shrink-0">
                     <p className="text-sm font-medium" style={{ color: habit.color }}>
                         {rate}%
                     </p>
-                    <p className="text-xs text-rose-300">7-day</p>
+                    <p className="text-xs text-orange-300 opacity-80">7-day</p>
                 </div>
 
                 <button
                     onClick={() => setExpanded(e => !e)}
-                    className="text-rose-300 hover:text-rose-400 transition-colors text-sm ml-1 shrink-0"
+                    className="text-orange-300 hover:text-orange-400 transition-colors text-sm ml-1 shrink-0"
                 >
                     {expanded ? "▲" : "▼"}
                 </button>
 
                 <button
                     onClick={() => onDelete(habit.id)}
-                    className="text-rose-200 opacity-60 hover:opacity-100 hover:text-red-400 transition-colors text-lg shrink-0"
+                    className="text-orange-200 opacity-60 hover:opacity-100 hover:text-red-400 transition-colors text-lg shrink-0"
                 >
                     ×
                 </button>

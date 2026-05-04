@@ -22,8 +22,8 @@ export default function HabitForm({ onAdd, onClose }) {
 
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-4">
-            <div className="bg-gray-900 border border-rose-300 rounded-2xl w-full max-w-md p-6">
-                <h2 className="text-lg font-semibold mb-5">new habit</h2>
+            <div className="bg-orange-200 opacity-70 dark:bg-gray-900 border border-orange-300 rounded-2xl w-full max-w-md p-6">
+                <h2 className="text-orange-900 dark:text-orange-50 text-lg font-semibold mb-5">new habit</h2>
 
                 <input
                     type="text"
@@ -31,12 +31,12 @@ export default function HabitForm({ onAdd, onClose }) {
                     value={name}
                     onChange={e => setName(e.target.value)}
                     onKeyDown={e => e.key === "Enter" && handleSubmit()}
-                    className="text-black w-full bg-rose-200 border border-gray-700 rounded-xl px-4 py-3 text-sm outline-none focus:border-rose-100 transition-colors mb-5"
+                    className="text-black w-full bg-white dark:bg-orange-200 border border-gray-200 hover:border-gray-500 rounded-xl px-4 py-3 text-sm outline-none dark:focus:border-rose-100 transition-colors mb-5"
                     autoFocus
                 />
 
                 <div className="mb-5">
-                    <p className="text-xs text-rose-100 opacity-60 mb-2">icon</p>
+                    <p className="text-xs text-orange-900 dark:text-rose-100 dark:opacity-60 mb-2">icon</p>
                     <div className="flex flex-wrap gap-2">
                         {ICONS.map(i => (
                         <button
@@ -44,8 +44,8 @@ export default function HabitForm({ onAdd, onClose }) {
                             onClick={() => setIcon(i)}
                             className={`w-10 h-10 rounded-xl text-xl transition-all ${
                             icon === i
-                                ? "bg-rose-400 scale-110"
-                                : "bg-red-200 opacity-70 hover:bg-gray-700 hover:opacity-80"
+                                ? "bg-taupe-900 dark:bg-rose-400 scale-110"
+                                : "bg-taupe-900 dark:bg-red-200 opacity-70 hover:bg-taupe-600 hover:opacity-80"
                             }`}
                         >
                             {i}
@@ -55,7 +55,7 @@ export default function HabitForm({ onAdd, onClose }) {
                 </div>
 
                 <div className="mb-6">
-                    <p className="text-xs text-rose-100 opacity-60 mb-2">color</p>
+                    <p className="text-xs text-orange-900 dark:text-rose-100 dark:opacity-60 mb-2">color</p>
                     <div className="flex gap-2">
                         {COLORS.map(c => (
                         <button
@@ -75,14 +75,14 @@ export default function HabitForm({ onAdd, onClose }) {
                 <div className="flex gap-3">
                     <button
                         onClick={onClose}
-                        className="flex-1 py-3 rounded-xl bg-gray-800 text-rose-100 opacity-60 hover:bg-gray-700 transition-colors text-sm"
+                        className="flex-1 py-3 rounded-xl bg-taupe-800 text-white dark:text-rose-100 dark:opacity-60 hover:bg-taupe-900 transition-colors text-sm"
                     >
                         cancel
                     </button>
                     <button
                         onClick={handleSubmit}
                         disabled={!name.trim()}
-                        className="text-gray-300 flex-1 py-3 rounded-xl text-sm font-medium transition-all disabled:opacity-30"
+                        className="text-white dark:text-gray-300 flex-1 py-3 rounded-xl text-sm font-medium transition-all disabled:opacity-30"
                         style={{ background: color }}
                     >
                         add habit

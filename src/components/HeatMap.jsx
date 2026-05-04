@@ -27,7 +27,7 @@ export default function HeatMap ({ completions, color }) {
                                 title={cell.key}
                                 className="aspect-square rounded-sm transition-all"
                                 style={{
-                                    background: cell.done ? color : "#fce3eedd",
+                                    background: cell.done ? color : "#ffe9d7dd",
                                     opacity: cell.done ? 1 : 1,
                                     outline: cell.isToday ? `1px solid ${color}` : "none",
                                     outlineOffset: "1px",
