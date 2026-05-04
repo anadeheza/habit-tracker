@@ -21,8 +21,8 @@ export default function HabitCard({ habit, onToggle, onDelete }) {
         <div
             className={`rounded-2xl p-4 mb-3 transition-all duration-300 border ${
                 done
-                ? "bg-taupe-800 border-orange-300 opacity-60"
-                : "bg-taupe-700 dark:bg-taupe-900 border-red-400 dark:opacity-85 hover:border-orange-200"
+                ? "bg-amber-950 dark:bg-taupe-800 border-orange-400 opacity-60"
+                : "bg-amber-950 dark:bg-taupe-900 dark:border-orange-700 border-orange-100 hover:border-orange-700 dark:hover:border-orange-400"
             }`}
         >
             <div className="flex items-center gap-4">
