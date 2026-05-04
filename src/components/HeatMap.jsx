@@ -12,7 +12,7 @@ export default function HeatMap ({ completions, color }) {
 
     return (
         <div className="mt-4">
-            <p className="text-xs text-gray-500 mb-2">last {WEEKS} weeks</p>
+            <p className="text-xs text-rose-100 opacity-70 mb-2">last {WEEKS} weeks</p>
             
             <div
                 className="grid gap-1"
@@ -27,7 +27,7 @@ export default function HeatMap ({ completions, color }) {
                                 title={cell.key}
                                 className="aspect-square rounded-sm transition-all"
                                 style={{
-                                    background: cell.done ? color : "#1f2937",
+                                    background: cell.done ? color : "#fce3eedd",
                                     opacity: cell.done ? 1 : 1,
                                     outline: cell.isToday ? `1px solid ${color}` : "none",
                                     outlineOffset: "1px",

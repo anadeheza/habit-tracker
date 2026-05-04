@@ -4,10 +4,10 @@ import HeatMap from "./HeatMap";
 
 const streakMessage = (n) => {
     if (n === 0) return "no streak... yet, start now! ;)"
-    if (n === 1) return "gettin' started!!"
+    if (n === 1) return "gettin' started!! (∩˃o˂∩)♡"
     if(n < 5) return `${n} days, ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧`
-    if (n < 14) return `${n} days, let's go! ᕙ(  •̀ ᗜ •́  )ᕗ `
-    if (n < 30) return `${n} days already? amazing!🔥💯`
+    if (n < 14) return `${n} days, let's go! ✺◟(＾∇＾)◞✺ `
+    if (n < 30) return `${n} days already? amazing! ᕙ(  •̀ ᗜ •́  )ᕗ`
     return `${n} days! complete legend 🐦‍🔥🏆`
 }
 
@@ -21,8 +21,8 @@ export default function HabitCard({ habit, onToggle, onDelete }) {
         <div
             className={`rounded-2xl p-4 mb-3 transition-all duration-300 border ${
                 done
-                ? "bg-gray-800 border-gray-700 opacity-75"
-                : "bg-gray-900 border-gray-800 hover:border-gray-600"
+                ? "bg-zinc-800 border-red-300 opacity-60"
+                : "bg-zinc-900 border-rose-400 opacity-85 hover:border-rose-200"
             }`}
         >
             <div className="flex items-center gap-4">
@@ -34,40 +34,40 @@ export default function HabitCard({ habit, onToggle, onDelete }) {
                         border: `2px solid ${habit.color}`,
                     }}
                 >
-                    {done ? "✓" : habit.icon}
+                    {done ? "🗹" : habit.icon}
                 </button>
 
                 <div className="flex-1 min-w-0">
                     <p className={`font-medium truncate ${done ? "line-through text-gray-500" : ""}`}>
                         {habit.name}
                     </p>
-                    <p className="text-xs text-gray-500 mt-0.5">{streakMessage(streak)}</p>
+                    <p className="text-xs text-rose-100 opacity-80 mt-0.5">{streakMessage(streak)}</p>
                 </div>
 
                 <div className="text-right shrink-0">
                     <p className="text-sm font-medium" style={{ color: habit.color }}>
                         {rate}%
                     </p>
-                    <p className="text-xs text-gray-600">7-day</p>
+                    <p className="text-xs text-rose-300">7-day</p>
                 </div>
 
                 <button
                     onClick={() => setExpanded(e => !e)}
-                    className="text-gray-600 hover:text-gray-400 transition-colors text-sm ml-1 shrink-0"
+                    className="text-rose-300 hover:text-rose-400 transition-colors text-sm ml-1 shrink-0"
                 >
                     {expanded ? "▲" : "▼"}
                 </button>
 
                 <button
                     onClick={() => onDelete(habit.id)}
-                    className="text-gray-700 hover:text-red-500 transition-colors text-lg shrink-0"
+                    className="text-rose-200 opacity-60 hover:opacity-100 hover:text-red-400 transition-colors text-lg shrink-0"
                 >
                     ×
                 </button>
             </div>
 
             {expanded && (
-                <Heatmap completions={habit.completions} color={habit.color} />
+                <HeatMap completions={habit.completions} color={habit.color} />
             )}
         </div>
     )

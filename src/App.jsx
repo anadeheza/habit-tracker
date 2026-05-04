@@ -16,11 +16,11 @@ export default function App() {
   ).length
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 p-6 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-zinc-800 text-gray-100 p-6 max-w-2xl mx-auto">
       <header className="mb-8">
-        <p className="text-gray-500 text-sm">{today}</p>
-        <h1 className="text-3xl font-bold mt-1">Your habits</h1>
-        <p className="text-gray-400 mt-1">
+        <p className="text-rose-100 opacity-70 text-sm">{today}</p>
+        <h1 className="text-3xl font-bold mt-1 text-rose-200">Your habits</h1>
+        <p className="text-rose-100 opacity-60 mt-1">
           {completedToday} of {habits.length} done today
           {completedToday === habits.length && habits.length > 0 && " 🔥"}
         </p>
@@ -34,7 +34,7 @@ export default function App() {
 
       <button
         onClick={() => setShowForm(true)}
-        className="mt-6 w-full py-3 rounded-xl border border-dashed border-gray-700 text-gray-500 hover:border-gray-500 hover:text-gray-300 transition-colors"
+        className="mt-6 w-full py-3 rounded-xl border border-dashed border-rose-200 opacity-40 text-rose-100 hover:border-rose-200 hover:opacity-75 hover:text-rose-100 transition-colors"
       >
         + add habit
       </button>
