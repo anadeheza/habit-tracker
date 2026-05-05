@@ -1,16 +1,12 @@
-# React + Vite
+# Habit tracker 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Just a simple website to track your progress in different habits and goals that you set for yourself. Add your habits with a personalized emoji and color.
 
-Currently, two official plugins are available:
+# Main aspects 
+On the main page,  you have a general progress status with some motivational quote, your habits list displayed by date of entry (but you can move them up and down), an "add habit" button and a "share streak" button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Habit Card 
+The habit card has 4 buttons, the emoji that marks the habit as done when pressed, the arrow that opens the heatmap, the "x" button (to delete), and a tree emoji button, that builds an SVG tree that reflexes user progress. 
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Share streak 
+The share streak button makes a summary of your progress in different habits and is exportable as a PDF
