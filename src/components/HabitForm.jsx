@@ -2,8 +2,8 @@ import { useState } from "react";
 
 const ICONS = ["📚", "🏃", "💧", "🧘", "✍️", "🎸", "🥗", "😴", "🧹", "💻", "🌿", "🏋️"]
 const COLORS = [
-    "#aaacf7", "#70c8ab", "#e1b160", "#e57979",
-    "#9dc0f9", "#dda3fa", "#e78fbb", "#71d3c8",
+    "#aaacf7", "#70c8ab", "#e1b160", "#8fe579",
+    "#9dc0f9", "#dda3fa", "#9ce292", "#71d3c8",
 ]
 
 export default function HabitForm({ onAdd, onClose }) {

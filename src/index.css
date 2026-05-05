@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --tree-bg-from: #e28c22;
-  --tree-bg-to:   #0d1a12;
+  --tree-bg-from: #e2944a;
+  --tree-bg-to:   #522e2e;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --tree-bg-from: #0a0f1a;
-    --tree-bg-to:   #0d1a0f;
+    --tree-bg-from: #724517;
+    --tree-bg-to:   #281c16;
   }
 }

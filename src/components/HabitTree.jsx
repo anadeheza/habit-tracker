@@ -178,7 +178,6 @@ export default function HabitTree({ habit, onClose }) {
                 className="w-full max-w-xs rounded-3xl p-6 relative"
                 style={{
                     background: "linear-gradient(160deg, var(--tree-bg-from), var(--tree-bg-to))", 
-                    border: `1px solid ${color}33`,
                     boxShadow: `0 0 60px ${color}22`,
                 }}
             >
