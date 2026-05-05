@@ -5,4 +5,5 @@ export default {
   plugins: [
     tailwindcss(),
   ],
+  base: '/habit-tracker/',
 }
