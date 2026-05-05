@@ -177,7 +177,7 @@ export default function HabitTree({ habit, onClose }) {
             <div
                 className="w-full max-w-xs rounded-3xl p-6 relative"
                 style={{
-                    background: "linear-gradient(160deg, #1a1208 0%, #0d1a12 100%)",
+                    background: "linear-gradient(160deg, var(--tree-bg-from), var(--tree-bg-to))", 
                     border: `1px solid ${color}33`,
                     boxShadow: `0 0 60px ${color}22`,
                 }}
@@ -233,7 +233,7 @@ export default function HabitTree({ habit, onClose }) {
  
                 {stage === 6 && (
                     <p className="text-center text-xs mt-3" style={{ color }}>
-                        🏆 ancient tree achieved. you're a legend.
+                        ancient tree achieved! you're a legend 🫵🏻💯
                     </p>
                 )}
  

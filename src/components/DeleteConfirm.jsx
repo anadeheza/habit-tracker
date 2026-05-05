@@ -21,19 +21,20 @@ export default function DeleteConfirm({ habit, onConfirm, onCancel }) {
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
             style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
         >
-            <div className="w-full max-w-sm rounded-2xl p-6 bg-amber-950 border border-red-900/60">
+            <div className="w-full max-w-sm rounded-2xl p-6 bg-taupe-700/60 border border-red-900">
                 {/* Icon */}
                 <div className="text-center mb-4">
                     <span className="text-4xl">{hasStreak ? "🥀" : "🗑️"}</span>
                 </div>
  
-                <h2 className="text-white text-center text-base font-semibold mb-2">
+                <h2 className="text-orange-200 text-center text-base font-semibold mb-2">
                     delete "{habit.name}"?
                 </h2>
  
                 {hasStreak ? (
                     <p className="text-center text-sm text-orange-200 opacity-70 mb-5">
-                        you have a <span className="font-semibold text-orange-300">{streak}-day streak</span> — deleting this habit will kill your tree and erase all progress. this can't be undone.
+                        wait, you have a <span className="font-semibold text-orange-300">{streak}-day streak</span> already! deleting this habit will kill your tree and you'll lose your progress
+                        <p>this can't be undone!!⚠️</p>
                     </p>
                 ) : (
                     <p className="text-center text-sm text-orange-200 opacity-70 mb-5">
@@ -44,13 +45,13 @@ export default function DeleteConfirm({ habit, onConfirm, onCancel }) {
                 <div className="flex gap-3">
                     <button
                         onClick={onCancel}
-                        className="flex-1 py-3 rounded-xl text-sm font-medium bg-orange-900/40 text-orange-200 hover:bg-orange-900/70 transition-colors border border-orange-800/40"
+                        className="flex-1 py-3 rounded-xl text-sm font-medium bg-orange-600/30 text-orange-200 hover:bg-orange-900/70 transition-colors border border-orange-800/40"
                     >
                         keep it
                     </button>
                     <button
                         onClick={onConfirm}
-                        className="flex-1 py-3 rounded-xl text-sm font-medium bg-red-900/60 text-red-200 hover:bg-red-800 transition-colors border border-red-700/50"
+                        className="flex-1 py-3 rounded-xl text-sm font-medium bg-red-900/60 text-red-200 hover:bg-red-800 transition-colors border border-red-800/40"
                     >
                         {hasStreak ? "delete anyway" : "delete"}
                     </button>

@@ -38,8 +38,8 @@ export function useHabits() {
                 h.id === id ? {
                     ...h,
                     completions: h.completions.includes(today) 
-                    ? h.completions.filter(d => d !== today)
-                    :[...h.completions, today],
+                        ? h.completions.filter(d => d !== today)
+                        :[...h.completions, today],
                 }
                 : h
             )
@@ -59,5 +59,14 @@ export function useHabits() {
         setHabits(prev => prev.filter(h => h.id !== id))
     }
 
-    return { habits, toggleToday, addHabit, deleteHabit }
+    const reorderHabits = (fromIndex, toIndex) => {
+        setHabits(prev => {
+            const next = [...prev]
+            const [moved] = next.splice(fromIndex, 1)
+            next.splice(toIndex, 0, moved)
+            return next 
+        })
+    }
+
+    return { habits, toggleToday, addHabit, deleteHabit, reorderHabits }
 }
