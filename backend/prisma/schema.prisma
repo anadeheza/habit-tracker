@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js" // para generar el paquete @prisma/client para javascript y node.js
+}
+
+datasource db {
+  provider = "sqlite" // el servidor va a ser un archivo local
+  url      = env("DATABASE_URL")
+}
+
+// tabla de datos 
+model Habit {
+  id        Int      @id @default(autoincrement()) // el id es entero @id => es la clave primaria (y es unico), se autoincrementa, no hace falta agregar un id a cada habito
+  name      String   // titulo del habito, es obligatorio (no tiene default)
+  icon        String   @default("⭐")
+  color       String   @default("#6366f1")
+  completions String   @default("[]")
+  streak    Int      @default(0) // por defecto es 0, siempre es entero (1 dia, 2 dias...)
+  completed Boolean  @default(false) // si el habito esta hecho, es true, por defecto es falso
+  createdAt DateTime @default(now()) // fecha de creacion, datetime es el tipo que guarda fecha y hora, por defecto es hoy, entonces cuando ingresas el habito se agrega ese dia como fecha
+}
