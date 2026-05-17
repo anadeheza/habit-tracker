@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@clerk/clerk-react";
 
-const API_URL = "http://localhost:3000/api/habits";
+const API_URL = "https://habit-tracker-production-92f5.up.railway.app/api/habits";
 
 export function useHabits() {
     const [habits, setHabits] = useState([]);
