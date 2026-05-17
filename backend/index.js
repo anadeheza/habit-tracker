@@ -38,7 +38,8 @@ app.post('/api/habits', async(req, res) => {
             name,
             icon,
             color,
-            completions: JSON.stringify([]) //convertimos a un array nuevamente, empieza vacio
+            completions: JSON.stringify([]), //convertimos a un array nuevamente, empieza vacio
+            userId
         }
     })
     res.json({...habitoNuevo, completions: []})
