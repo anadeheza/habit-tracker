@@ -3,8 +3,9 @@ export function getStreak(completions) {
 
     const sorted = [...completions].sort((a, b) => new Date(b) - new Date(a))
     const today = new Date().toISOString().split("T")[0]
-    const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0]
-
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().split("T")[0];
     if(sorted[0] !== today && sorted[0] !== yesterday) return 0 
 
     let streak = 1 
