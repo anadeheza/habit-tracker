@@ -1,16 +1,18 @@
 // importaciones y configuracion inicial
 const express = require('express'); //para crear la pagina web 
-const cors = require('cors'); // para comunicacion cruzada frontend-backend
-const { PrismaClient } = require('@prisma/client');
+const cors = require('cors'); // para comunicacion entre el frontend y el backend
+const { PrismaClient } = require('@prisma/client'); // prisma para poder escribir en javascript en vez de SQL
 const { clerkMiddleware, getAuth } = require('@clerk/express');
 
 const app = express();
 const prisma = new PrismaClient();
 
-// intermediarios, interceptan la peticion http y la convierte en json
-app.use(cors()); 
-app.use(express.json());
-app.use(clerkMiddleware()); // Clerk intercepta cada request
+// intermediarios
+app.use(cors({
+    origin: 'https://habit-tracker-mu-gules.vercel.app'
+})); //permite las peticiones http del frontend en vercel al backend en railway pero no externos
+app.use(express.json()); // acepta los textos JSON del post y los convierte en objetos de javascript
+app.use(clerkMiddleware()); // clerk intercepta las requests, lee su token (userId) y los verifica
 
 // obtener los habitos con get
 app.get('/api/habits', async (req, res) => {
@@ -23,7 +25,7 @@ app.get('/api/habits', async (req, res) => {
 
     const habitosFormateados = habits.map(h => ({
         ...h,
-        completions: JSON.parse(h.completions) //SQLite no guarda arrays, lo guardamos como texto plano y despues conviertimos de nuevo a array
+        completions: JSON.parse(h.completions) //SQLite no guarda arrays, lo guardamos como texto plano y despues conviertimos de nuevo a array, para pruebas uso SQLite, para la web PostgreSQL
     }))
     res.json(habitosFormateados)
 })
@@ -31,8 +33,6 @@ app.get('/api/habits', async (req, res) => {
 // crear los habitos con post
 app.post('/api/habits', async(req, res) => {
     const { userId } = getAuth(req);
-    console.log('userId:', userId); // log temporal
-    console.log('headers:', req.headers.authorization); // log temporal
     if (!userId) return res.status(401).json({ error: 'No autenticado' });
 
     const {name, icon, color} = req.body

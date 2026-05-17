@@ -8,13 +8,13 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql" // el servidor va a ser un archivo local
+  provider = "postgresql" // el servidor 
   url      = env("DATABASE_URL")
 }
 
 // tabla de datos 
 model Habit {
-  id        Int      @id @default(autoincrement()) // el id es entero @id => es la clave primaria (y es unico), se autoincrementa, no hace falta agregar un id a cada habito
+  id        Int      @id @default(autoincrement()) // el id del habito, es entero, @id => es la clave primaria (y es unico), se autoincrementa, no hace falta agregar un id a cada habito
   userId      String   // ID del usuario de Clerk
   name      String   // titulo del habito, es obligatorio (no tiene default)
   icon        String   @default("⭐")
