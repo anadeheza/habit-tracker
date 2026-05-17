@@ -13,7 +13,8 @@
   "dependencies": {
     "@clerk/express": "^2.1.17",
     "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "@prisma/client": "^5.22.0",
