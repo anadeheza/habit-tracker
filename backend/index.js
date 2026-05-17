@@ -28,6 +28,8 @@ app.get('/api/habits', async (req, res) => {
 // crear los habitos con post
 app.post('/api/habits', async(req, res) => {
     const { userId } = getAuth(req);
+    console.log('userId:', userId); // log temporal
+    console.log('headers:', req.headers.authorization); // log temporal
     if (!userId) return res.status(401).json({ error: 'No autenticado' });
 
     const {name, icon, color} = req.body
