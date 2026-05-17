@@ -14,8 +14,8 @@ app.use(clerkMiddleware()); // Clerk intercepta cada request
 
 // obtener los habitos con get
 app.get('/api/habits', async (req, res) => {
-    const {userID} = getAuth(req)
-    if(!userID) return res.status(401).json({error: 'no autenticado'})
+    const {userId} = getAuth(req)
+    if(!userId) return res.status(401).json({error: 'no autenticado'})
 
     const habits = await prisma.habit.findMany() //el ORM pide las filas a SQLite
     const habitosFormateados = habits.map(h => ({
