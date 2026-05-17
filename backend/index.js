@@ -17,7 +17,10 @@ app.get('/api/habits', async (req, res) => {
     const {userId} = getAuth(req)
     if(!userId) return res.status(401).json({error: 'no autenticado'})
 
-    const habits = await prisma.habit.findMany() //el ORM pide las filas a SQLite
+    const habits = await prisma.habit.findMany({
+        where: { userId }
+    }) //el ORM pide las filas a postgreSQL
+
     const habitosFormateados = habits.map(h => ({
         ...h,
         completions: JSON.parse(h.completions) //SQLite no guarda arrays, lo guardamos como texto plano y despues conviertimos de nuevo a array
@@ -53,7 +56,7 @@ app.put('/api/habits/:id', async (req, res) => {
     const {id} = req.params //parametros
     const {completions} = req.body 
     const actualizarHabito = await prisma.habit.update({
-        where: { id: parseInt(id) }, //buscamos por el id del habito
+        where: { id: parseInt(id), userId }, //buscamos por el id del habito
         data: {
             completions: JSON.stringify(completions)
         }
@@ -68,7 +71,7 @@ app.delete('/api/habits/:id', async (req, res) => {
 
     const {id} = req.params
     await prisma.habit.delete({
-        where: {id: parseInt(id)}
+        where: {id: parseInt(id), userId}
     })
     res.json({success: true})
 })
