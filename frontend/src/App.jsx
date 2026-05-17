@@ -19,7 +19,7 @@ export default function App() {
   })
 
   const todayKey = new Date().toISOString().split("T")[0]
-  const completedToday = habits.filter(h => h.completions.includes(todayKey)).length
+  const completedToday = habits.filter(h => Array.isArray(h.completions) && h.completions.includes(todayKey)).length  
   const allDone = habits.length > 0 && completedToday === habits.length
 
   useEffect(() => {

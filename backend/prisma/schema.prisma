@@ -15,6 +15,7 @@ datasource db {
 // tabla de datos 
 model Habit {
   id        Int      @id @default(autoincrement()) // el id es entero @id => es la clave primaria (y es unico), se autoincrementa, no hace falta agregar un id a cada habito
+  userId      String   // ID del usuario de Clerk
   name      String   // titulo del habito, es obligatorio (no tiene default)
   icon        String   @default("⭐")
   color       String   @default("#6366f1")
