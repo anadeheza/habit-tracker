@@ -7,7 +7,6 @@ const { clerkMiddleware, getAuth } = require('@clerk/express');
 const app = express();
 const prisma = new PrismaClient();
 
-// intermediarios
 app.use(cors({
     origin: 'https://habit-tracker-mu-gules.vercel.app'
 })); //permite las peticiones http del frontend en vercel al backend en railway pero no externos
@@ -36,12 +35,12 @@ app.post('/api/habits', async(req, res) => {
     if (!userId) return res.status(401).json({ error: 'No autenticado' });
 
     const {name, icon, color} = req.body
-    const habitoNuevo = await prisma.habit.create({ //insertamos la info en la base de datos
+    const habitoNuevo = await prisma.habit.create({ // la info en la base de datos
         data: {
             name,
             icon,
             color,
-            completions: JSON.stringify([]), //convertimos a un array nuevamente, empieza vacio
+            completions: JSON.stringify([]), //convertimos a un array de nuevo
             userId
         }
     })
