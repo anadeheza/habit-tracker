@@ -9,4 +9,4 @@ On the main page,  you have a general progress status with some motivational quo
 The habit card has 4 buttons, the emoji that marks the habit as done when pressed, the arrow that opens the heatmap, the "x" button (to delete), and a tree emoji button, that builds an SVG tree that reflexes user progress. 
 
 # Share streak 
-The share streak button makes a summary of your progress in different habits and is exportable as a PDF
+The share streak button makes a summary of your progress in different habits and is exportable as a PNG
